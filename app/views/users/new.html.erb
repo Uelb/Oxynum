@@ -1,0 +1,31 @@
+#encoding: utf-8
+<div class="logo"><a href="/" title="Oxygene numerique">Oxygene Numerique</a></div>
+<div class="wrapper">
+	<h1>Add new dream</h1>
+	<%= form_tag :action => 'create' do %>	
+	<label for="user_gender_true"><%= radio_button 'user', :gender, true, :class => 'radio_button' %>Homme</label>
+	<label for="user_gender_false"><%= radio_button 'user', :gender, false, :class => 'radio_button' %>Femme</label>
+	<div class="clear"></div>
+	<%= text_field 'user', :username , :placeholder => 'Pseudo', :class => 'text_field', :required => true %>
+	<%= text_area 'dream', :message, :placeholder => 'Inscrivez votre rêve le plus fou', :class => 'text_area', :required =>true %>
+	<%= submit_tag "Déposez votre rêve et découvrez ceux des autres", :class => 'submit' %>
+	<%= link_to 'Retour à la page d\'accueil', root_path %>
+	<% end %>
+	<div class="cloud cloud_blue">*</div>
+	<div class="cloud cloud_grey">*</div>
+	<div class="cloud cloud_white">*</div>
+</div>
+<script type="text/javascript">	
+		jQuery(document).ready(function(){
+			jQuery('.cloud_blue').parallax({
+				mouseport: jQuery("body")
+			});
+			jQuery('.cloud_white').parallax({
+				mouseport: jQuery("body")
+			});
+			jQuery('.cloud_grey').parallax({
+				mouseport: jQuery("body")
+			});
+		});	
+</script>
+ 

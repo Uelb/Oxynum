@@ -1,0 +1,21 @@
+<h1>Voici une liste de vos rêves les plus fous</h1>
+
+<table>
+  <tr>
+  	<th>Username</th>
+  	<th>Message</th>
+  </tr>
+
+<% @dreams.each do |dream| %>
+  <tr>
+  	<td><%= dream.user.username %></td>
+  	<td><%= dream.message %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+Nombre de rêves : <%= @dreams.size %>
+
+<%= link_to "Déposez votre rêve", new_dream_path%>

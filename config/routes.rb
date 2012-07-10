@@ -1,4 +1,12 @@
 Oxynum2::Application.routes.draw do
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  root :to => 'users#new'
+  
+  resources :users, :only => ['new', 'create']
+  resources :dreams, :only => ['new','index','create']
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

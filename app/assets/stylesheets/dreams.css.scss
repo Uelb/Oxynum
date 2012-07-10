@@ -1,0 +1,185 @@
+// Place all the styles related to the dreams controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*variable*/
+$grey: #333;
+$radius: 3px;
+$logowidth:86px;
+$heightWrapper:150px;
+$circle_size:16px;
+
+
+
+body, html{
+  background: $grey;
+  font:11px Arial, Helvetica, garamond;
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100%;
+  position:relative;
+}  
+.wrapper{
+  width:260px;
+  margin:0 auto;
+  padding-top:$heightWrapper + 20px;
+  position:relative
+}  
+.logo{
+  background:url('/assets/logo.png') no-repeat center top; 
+  width:$logowidth;
+  height:$heightWrapper;
+  position:absolute;
+  left:50%;
+  margin-left:-43px;
+  top:0
+  }
+.logo a{
+  background:url('/assets/logo-retina.png') no-repeat center top;
+  background-size: 100% 100%;
+  width:$logowidth; 
+  height:$heightWrapper; 
+  display:block; 
+  text-indent:-1000em;
+  overflow:hidden;
+  outline:none;
+}
+.logo a img{border:none;}
+h1{
+  color:#fff; 
+  font-weight:normal;
+  font-size:16px;
+  text-align:center;
+  margin-bottom:2em;
+}
+form input[type="radio"]{
+  margin-right:1em;
+  z-index:20;
+  position:relative;
+}
+form input[type="text"]{
+  width:100%; 
+  height:2.2em;  
+  margin:0.5em 0 0.5em 0; 
+  border:none; 
+  border-radius:$radius; 
+  -webkit-border-radius:$radius; 
+  -moz-border-radius:$radius;
+  padding:1em 0;
+  text-indent:1em;
+  position:relative;
+  outline:none;
+  z-index:20;
+}
+form textarea{
+  width:100%; 
+  height:9em; 
+  border:none; 
+  margin:0.5em 0 0.5em 0;
+  border-radius:$radius; 
+  -webkit-border-radius:$radius; 
+  -moz-border-radius:$radius; 
+  padding:1em 0; 
+  text-indent:1em;
+  position:relative;
+  z-index:20;
+  outline:none;
+}
+form textarea, form input[type="text"]{outline:none; border:none;}
+form label{
+  color:#fff;
+  width:50%;
+  display:inline-block;
+  float:left;
+  cursor:pointer;
+  z-index:20;
+  position:relative;
+}
+form input[type="submit"]{  
+  background:url('/assets/arrow_btn.png') no-repeat 220px center #08a3e5; 
+  border:none;
+  border-radius:$radius; 
+  -webkit-border-radius:$radius; 
+  -moz-border-radius:$radius;
+  padding:10px 50px 10px 10px;
+  white-space:normal;
+  text-align:right;
+  width:100%;
+  z-index:20;
+  text-shadow: black 0 1px 0;
+  -webkit-font-smoothing: antialiased;
+  cursor: pointer;-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  -ms-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  -o-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  position:relative;
+  margin-bottom:1em;
+}
+form input[type="submit"]:hover{
+  background:url('/assets/arrow_btn.png') no-repeat 220px center #d96b00;
+}
+form input[type="submit"]:active{
+  background:url('/assets/arrow_btn.png') no-repeat 220px center #d96b00;
+}
+.cloud{
+  position:absolute;
+  text-indent:-1000em;
+  outline:none;
+  overflow:hidden;
+}
+.cloud_blue{ 
+  background:url('/assets/cloud_blue.png') no-repeat right bottom transparent;
+  height:39px;
+  bottom: 75px;
+  right:-60px;
+  z-index:10px;
+  width:350px;
+  height:70%
+}
+.cloud_grey{ 
+  background:url('/assets/cloud_grey.png') no-repeat right bottom transparent;
+  height:36px; 
+  bottom: 85px;
+  left:-55px;
+  z-index:10px;
+  width:400px;
+  height:80%
+}
+.cloud_white{ 
+  background:url('/assets/cloud_white.png') no-repeat left bottom transparent;
+  height:41px; 
+  bottom: 75px;
+  right:-35px;
+  z-index:10px;
+  width:400px;
+  height:75% 
+}
+
+/*footer*/
+
+.footer{background:#000; padding:20px;}
+.footer ul, .footer ul li{
+  padding:0; 
+  margin:0;
+}
+.footer ul{
+  width:300px;
+}
+.footer ul li{
+  width:150px; display-inline:block; float:left;
+}
+.footer ul li a{color:#fff; text-decoration:none; padding-left:20px;}
+.circle-menu{
+  width:$circle_size; 
+  height:$circle_size;
+  border-radius:$circle_size; 
+  -webkit-border-radius:$circle_size; 
+  -moz-border-radius:$circle_size; 
+}
+a.home span.circle-menu{
+  display:inline-block; 
+  background:#08a3e5;
+}
+
