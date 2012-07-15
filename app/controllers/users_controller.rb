@@ -18,23 +18,19 @@ def create
   end
   @user.ip = request.env['REMOTE_ADDR']
   saved = @user.save
-  if !saved
-    notice = 'Le rêve a été correctement créé'+' mais l\'utilisateur existait déja'
-    @dream.user = User.where(:ip => @user.ip, :username => @user.username).first
-    if !@dream.user 
-      format.html { redirect_to new_user_path, notice: 'L\'utilisateur existe déjà' }
-    end
-  end
-  @dream.user ||= @user
+  @dream.user = @user
   notice ||= 'Le rêve a été correctement créé'
   respond_to do |format|
-   if @dream.save && @user.dreams.where("created_at >= ?",1.hour.ago).count <= 50
-      format.html { redirect_to dreams_path, notice: notice }
+    if !saved
+      format.html { redirect_to new_user_path, notice: 'L\'utilisateur existe déjà' }
+      format.json { render json: dreams_path.errors, status: :unprocessable_entity }
+    elsif @dream.save && @user.dreams.where("created_at >= ?",1.hour.ago).count <= 50
+      format.html { redirect_to dreams_path, notice: 'Le rêve a été correctement créé' }
       format.json { render json: dreams_path, status: :created, location: users_path }
-   elsif @user.dreams.where("created_at >= ?",1.hour.ago).count > 50 
+    elsif @user.dreams.where("created_at >= ?",1.hour.ago).count > 50 
       format.html { redirect_to dreams_path, notice: 'Vous avez créé trop de rêves !!' }
       format.json { render json: dreams_path.errors, status: :unprocessable_entity }
-   else
+    else
       format.html { redirect_to dreams_path, notice: 'Une erreur s\'est produite' }
       format.json { render json: dreams_path.errors, status: :unprocessable_entity }
    end
