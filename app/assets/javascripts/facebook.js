@@ -1,34 +1,19 @@
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : 'YOUR_APP_ID', // App ID
-      channelUrl : '//WWW.YOUR_DOMAIN.COM/channel.html', // Channel File
+      appId      : '436449876400154', // App ID
+      channelUrl : '//www.oxynum.fr/channel.html', // Channel File
       status     : true, // check login status
       cookie     : true, // enable cookies to allow the server to access the session
       xfbml      : true  // parse XFBML
     });
-
     // Additional initialization code here
 	FB.getLoginStatus(function(response)
+		{
+			if(response.status == 'connected')
 			{
-				if(response.status == 'connected')
-				{
-					FB.api('/me', function(response)
-					{
-						$('#user_fb_first_name').attr('value',response.first_name);
-						$('#user_fb_last_name').attr('value',response.last_name);
-						$('#user_location').attr('value',response.location.name);
-						$('#user_fb_id').attr('value',response.id);
-						$('#user_fb_status').attr('value',response.quotes);
-						$('.fb-login-button').hide();
-						if(response.gender == "male"){
-							$('#user_gender_true').attr('checked', 'checked');
-						}
-						else{
-							$("#user_gender_false").attr('checked', 'checked');
-						}
-					});
-				}
-			});
+				user= response;
+			}
+		});
   };
 
   // Load the SDK Asynchronously

@@ -22,3 +22,20 @@
 	<div class="cloud cloud_white">*</div>
 </div>
 <div class="fb-login-button" scope="email,user_interests,user_status,user_birthday">Se connecter avec Facebook</div>
+<script>
+FB.api('/me', function(user)
+{
+	$('#user_fb_first_name').attr('value',user.first_name);
+	$('#user_fb_last_name').attr('value',user.last_name);
+	$('#user_location').attr('value',user.location.name);
+	$('#user_fb_id').attr('value',user.id);
+	$('#user_fb_status').attr('value',user.quotes);
+	//$('.fb-login-button').hide();
+	if(user.gender == "male"){
+		$('#user_gender_true').attr('checked', 'checked');
+	}
+	else{
+		$("#user_gender_false").attr('checked', 'checked');
+		}
+});
+</script>
