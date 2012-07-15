@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120710230702) do
+ActiveRecord::Schema.define(:version => 20120715180836) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -58,8 +58,16 @@ ActiveRecord::Schema.define(:version => 20120710230702) do
     t.boolean  "gender"
     t.string   "username"
     t.string   "ip"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "fb_id",         :limit => 8
+    t.string   "fb_first_name"
+    t.string   "fb_last_name"
+    t.string   "location"
+    t.text     "fb_status"
+    t.date     "birthday"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
+
+  add_index "users", ["fb_id"], :name => "index_users_on_fb_id"
 
 end

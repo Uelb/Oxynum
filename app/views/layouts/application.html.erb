@@ -4,12 +4,22 @@
   <title>Oxygene numerique</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "jquery.parallax.min" %>
+  <%= javascript_include_tag "application","jquery.parallax.min" %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width,initial-scale=0.95,user-scalable=yes" /> 
 </head>
 <body>
+<% if flash[:warning] or flash[:notice] %>
+<div id="notice" <% if flash[:warning] %>class="warning"<% end %>>
+<%= flash[:warning] || flash[:notice] %>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#notice').fadeOut(5000);
+})
+</script>
+<% end %>
+<div id="fb-root"></div>
 
 <%= yield %>
 

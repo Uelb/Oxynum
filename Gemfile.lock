@@ -59,6 +59,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     fastercsv (1.5.4)
+    fb-channel-file (0.0.1)
+      rails (>= 3.0)
     formtastic (2.1.1)
       actionpack (~> 3.0)
     has_scope (0.5.1)
@@ -145,6 +147,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin
   coffee-rails (~> 3.2.1)
+  fb-channel-file
   jquery-rails
   pg
   rails (= 3.2.6)
