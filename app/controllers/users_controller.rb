@@ -14,7 +14,7 @@ def create
   @dream = Dream.new(params[:dream])
   split = params[:birthday].split('/')
   if split.size == 3
-    @user.birthday = Date.new(split[2].to_i, split[1].to_i, split[0].to_i)
+    @user.birthday = Date.new(split[2].to_i, split[0].to_i, split[1].to_i)
   end
   @dream.user = @user
   @user.ip = request.env['REMOTE_ADDR']
