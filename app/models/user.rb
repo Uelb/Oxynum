@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   validates :fb_id, :presence => {:if => Proc.new { |user| user.fb_first_name.present? }}
   
   def name
-    "#{fb_first_name} #{fb_last_name}"
+    if fb_first_name
+      "#{fb_first_name} #{fb_last_name}"
+    else
+      username
+    end
   end
 end
