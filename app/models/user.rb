@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   validates :ip, :presence => true
   validates :username, :presence => {:unless => Proc.new { |user| user.name.present? }} 
   validates :name, :presence => {:unless => Proc.new { |user| user.username.present? }} 
-  validates :fb_id, :presence => {:if => Proc.new { |user| user.fb_name.present? }}
+  validates :fb_id, :presence => {:if => Proc.new { |user| user.fb_first_name.present? }}
   
   def name
     "#{fb_first_name} #{fb_last_name}"
