@@ -22,7 +22,6 @@
 								$('#user_fb_status').attr('value',user.quotes);
 								$('#user_email').attr('value',user.email);
 								$('#birthday').attr('value', user.birthday);
-								$('.fb-login-button').hide();
 								if(user.gender == "male"){
 									$('#user_gender_true').attr('checked', 'checked');
 								}
@@ -32,7 +31,13 @@
 							});
 				})
 			}
+			else{
+				$('.fb-login-button').show();
+			}
 		});
+    FB.Event.subscribe('auth.login', function(resp) {
+    	location.reload();
+    });
   };
 
   // Load the SDK Asynchronously
