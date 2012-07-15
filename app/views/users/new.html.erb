@@ -14,6 +14,8 @@
 	<%= hidden_field 'user', :location %>
 	<%= hidden_field 'user', :fb_id %>
 	<%= hidden_field 'user', :fb_status %>
+	<%= hidden_field 'user', :email %>
+	<%= hidden_field_tag(:birthday) %>
 	<%= submit_tag "Déposez votre rêve et découvrez ceux des autres", :class => 'submit' %>
 	<%= link_to 'Retour à la page d\'accueil', root_path %>
 	<% end %>
