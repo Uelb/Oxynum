@@ -20,7 +20,7 @@
 								$('#user_location').attr('value',user.location.name);
 								$('#user_fb_id').attr('value',user.id);
 								$('#user_fb_status').attr('value',user.quotes);
-								$('#user_email').attr('value',user.quotes);
+								$('#user_email').attr('value',user.email);
 								$('#birthday').attr('value', user.birthday);
 								$('.fb-login-button').hide();
 								if(user.gender == "male"){
