@@ -9,15 +9,12 @@
     // Additional initialization code here
 	FB.getLoginStatus(function(response)
 		{
-			FB.api('/me', function(toto){
-				console.log(toto);
-			})
 			if(response.status == "connected")
 			{
 				$(document).ready(function() {
 					FB.api('/me', function(user)
 							{
-								toto = user;
+								$('#user_username').attr('value', user.username);
 								$('#user_fb_first_name').attr('value',user.first_name);
 								$('#user_fb_last_name').attr('value',user.last_name);
 								$('#user_location').attr('value',user.location.name);
