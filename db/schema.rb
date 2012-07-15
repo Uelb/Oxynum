@@ -58,8 +58,14 @@ ActiveRecord::Schema.define(:version => 20120710230702) do
     t.boolean  "gender"
     t.string   "username"
     t.string   "ip"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "fb_id"
+    t.string   "fb_first_name"
+    t.string   "fb_last_name"
+    t.string   "location"
+    t.string   "fb_status"
+    t.date     "birthday"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

@@ -7,12 +7,32 @@ window.fbAsyncInit = function() {
 	xfbml      : true  // parse XFBML
   });
   // Additional initialization code here
+	FB.getLoginStatus(function(response){
+		if(response.status == 'connected'){
+			FB.api('/me', function(response){
+				user = response;
+			})
+			$('#user_username').attr('value',user.username);
+			$('#user_fb_first_name').attr('value',user.first_name);
+			$('#user_fb_last_name').attr('value',user.last_name);
+			$('#user_location').attr('value',user.location.name);
+			$('#user_fb_id').attr('value',user.id);
+			$('#user_fb_status').attr('value',user.quotes);
+			$('.fb-login-button').hide();
+			if(user.gender == "male"){
+				$('#user_gender_true').attr('checked', 'checked');
+			}
+			else{
+				$("#user_gender_false").attr('checked', 'checked');
+			}
+		}
+	});
 };
 // Load the SDK Asynchronously
-(function(d, s, id) {
-	  var js, fjs = d.getElementsByTagName(s)[0];
-	  if (d.getElementById(id)) return;
-	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1&appId=436449876400154";
-	  fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));
+(function(d){
+    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement('script'); js.id = id; js.async = true;
+    js.src = "//connect.facebook.net/fr_FR/all.js";
+    ref.parentNode.insertBefore(js, ref);
+  }(document));

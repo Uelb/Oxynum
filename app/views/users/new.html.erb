@@ -1,5 +1,5 @@
 #encoding: utf-8
-<%= javascript_include_tag "parallax" %>
+<%= javascript_include_tag "parallax", "facebook" %>
 <div class="logo"><a href="/" title="Oxygene numerique">Oxygene Numerique</a></div>
 <div class="wrapper">
 	<h1>Add new dream</h1>
@@ -9,6 +9,11 @@
 	<div class="clear"></div>
 	<%= text_field 'user', :username , :placeholder => 'Pseudo', :class => 'text_field', :required => true %>
 	<%= text_area 'dream', :message, :placeholder => 'Inscrivez votre rêve le plus fou', :class => 'text_area', :required =>true %>
+	<%= hidden_field 'user', :fb_first_name %>
+	<%= hidden_field 'user', :fb_last_name %>
+	<%= hidden_field 'user', :location %>
+	<%= hidden_field 'user', :fb_id %>
+	<%= hidden_field 'user', :fb_status %>
 	<%= submit_tag "Déposez votre rêve et découvrez ceux des autres", :class => 'submit' %>
 	<%= link_to 'Retour à la page d\'accueil', root_path %>
 	<% end %>
@@ -16,4 +21,4 @@
 	<div class="cloud cloud_grey">*</div>
 	<div class="cloud cloud_white">*</div>
 </div>
-<div class="fb-login-button">Login with Facebook</div>
+<div class="fb-login-button" scope="email,user_interests,user_status,user_birthday">Se connecter avec Facebook</div>
