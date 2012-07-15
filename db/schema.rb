@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20120715145540) do
     t.boolean  "gender"
     t.string   "username"
     t.string   "ip"
-    t.bigint  "fb_id"
+    t.integer   "fb_id", :limit => 8 
     t.string   "fb_first_name"
     t.string   "fb_last_name"
     t.string   "location"
