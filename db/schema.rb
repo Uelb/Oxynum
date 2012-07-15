@@ -68,6 +68,6 @@ ActiveRecord::Schema.define(:version => 20120715145540) do
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "users", ["fb_id"], :name => "index_users_on_fb_id", :unique => true
+  add_index "users", ["fb_id"], :name => "index_users_on_fb_id"
 
 end
