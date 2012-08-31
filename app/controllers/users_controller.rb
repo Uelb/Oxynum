@@ -25,6 +25,7 @@ def create
       format.html { redirect_to new_user_path, notice: 'L\'utilisateur existe déjà' }
       format.json { render json: dreams_path.errors, status: :unprocessable_entity }
     elsif @dream.save && @user.dreams.where("created_at >= ?",1.hour.ago).count <= 50
+      #@dream.create_words
       format.html { redirect_to dreams_path, notice: 'Le rêve a été correctement créé' }
       format.json { render json: dreams_path, status: :created, location: users_path }
     elsif @user.dreams.where("created_at >= ?",1.hour.ago).count > 50 
