@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :gender
       t.string :username
       t.string :ip
-      t.bigint :fb_id
+      t.integer :fb_id, :eight_byte_integer
       t.string :fb_first_name
       t.string :fb_last_name
       t.string :location
